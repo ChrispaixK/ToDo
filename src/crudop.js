@@ -13,7 +13,7 @@ if (localStorage.length > 0) {
 const updateUI = () => {
   for (let i = 0; i < taskArr.length; i += 1) {
     const createList = `
-  <li id=${taskArr[i].index} class="list"><input id=${taskArr[i].index}  type="text" data-desc="${taskArr[i].index}" class="task" value="${taskArr[i].tasktitle}"/> <button id=${taskArr[i].index} class="btn btn-delete"><i class="fa-solid fa-circle-trash"></i></button></li>
+  <li id=${taskArr[i].index} class="list"><input id=${taskArr[i].index}  type="text" data-desc="${taskArr[i].index}" class="task" value="${taskArr[i].tasktitle}"/> <button id=${taskArr[i].index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
   
   `;
     taskList.insertAdjacentHTML('beforeend', createList);
@@ -37,7 +37,7 @@ const addTask = (e) => {
   const newTask = new TaskObj();
   taskArr.push(newTask);
   const createList = `
-  <li id=${newTask.index} class="list"><input id=${newTask.index}  type="text" data-desc="${newTask.index} " class="task" value="${newTask.tasktitle}"/><button id=${newTask.index} class="btn btn-delete"><i class="fa-solid fa-circle-trash"></i></button></li>
+  <li id=${newTask.index} class="list"><input id=${newTask.index}  type="text" data-desc="${newTask.index} " class="task" value="${newTask.tasktitle}"/><button id=${newTask.index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
   
   `;
   taskList.insertAdjacentHTML('beforeend', createList);

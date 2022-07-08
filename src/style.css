@@ -31,6 +31,14 @@ html {
   justify-content: space-between;
 }
 
+.input-container button {
+  padding-right: 12px;
+}
+
+.top button {
+  padding-right: 12px;
+}
+
 .taskList {
   list-style: none;
 }
@@ -55,6 +63,8 @@ html {
   border: none;
   font-size: 1.8rem;
   padding: 0.4rem;
+  outline: none;
+  width: 95%;
 }
 
 .input-container input::placeholder {
@@ -72,4 +82,22 @@ html {
   color: #5c5c5c;
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+.taskList li {
+  display: flex;
+  align-items: center;
+}
+
+.btn-delete {
+  color: #fff;
+  background-color: #f00;
+  padding: 5px;
+}
+
+.task {
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  width: 95%;
 }

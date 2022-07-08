@@ -101,3 +101,26 @@ html {
   font-weight: 500;
   width: 95%;
 }
+
+.check {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+.empty-check {
+  display: none;
+}
+
+.checked {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.cross {
+  text-decoration: line-through;
+}

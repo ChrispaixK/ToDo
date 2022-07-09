@@ -2,6 +2,7 @@
 const formEl = document.querySelector('.input-container');
 const taskTitle = document.querySelector('#taskInput');
 const taskList = document.querySelector('.taskList');
+export default taskList;
 // array of task items
 let taskArr = [];
 if (localStorage.length > 0) {
@@ -10,10 +11,30 @@ if (localStorage.length > 0) {
 }
 
 // update UI
-const updateUI = () => {
+export const updateUI = () => {
+  let dyclass = '';
+  let classdy = '';
+  let cross = '';
   for (let i = 0; i < taskArr.length; i += 1) {
+    if (taskArr[i].completed) {
+      dyclass = '';
+      classdy = 'active';
+      cross = 'cross';
+    } else {
+      dyclass = 'active';
+      classdy = '';
+      cross = '';
+    }
     const createList = `
-  <li id=${taskArr[i].index} class="list"><input id=${taskArr[i].index}  type="text" data-desc="${taskArr[i].index}" class="task" value="${taskArr[i].tasktitle}"/> <button id=${taskArr[i].index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
+  <li id=${taskArr[i].index} class="list list-${taskArr[i].index}">
+
+  <button class="check" data-btn="${taskArr[i].index}">
+  <span class="empty-check ${dyclass}"><i class="fa-regular fa-square"></i></span>
+  <span class="checked  ${classdy}"><i class="fa-solid fa-check"></i></span>
+  </button>
+
+  <input id=${taskArr[i].index}  type="text" data-desc="${taskArr[i].index}" class="task ${cross}" value="${taskArr[i].tasktitle}"/>
+  <button id=${taskArr[i].index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
   
   `;
     taskList.insertAdjacentHTML('beforeend', createList);
@@ -37,7 +58,15 @@ const addTask = (e) => {
   const newTask = new TaskObj();
   taskArr.push(newTask);
   const createList = `
-  <li id=${newTask.index} class="list"><input id=${newTask.index}  type="text" data-desc="${newTask.index} " class="task" value="${newTask.tasktitle}"/><button id=${newTask.index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
+  <li id=${newTask.index} class="list list-${newTask.index}">
+  
+  <button class="check" data-btn="${newTask.index}">
+  <span class="empty-check active"><i class="fa-regular fa-square"></i></span>
+  <span class="checked"><i class="fa-solid fa-check"></i></span>
+  </button>
+
+  <input id=${newTask.index}  type="text" data-desc="${newTask.index} " class="task" value="${newTask.tasktitle}"/>
+  <button id=${newTask.index} class="btn btn-delete"><i class="fa-solid fa-trash-can"></i></button></li>
   
   `;
   taskList.insertAdjacentHTML('beforeend', createList);

@@ -23,6 +23,7 @@ export const updateUI = () => {
     } else {
       dyclass = 'active';
       classdy = '';
+      cross = '';
     }
     const createList = `
   <li id=${taskArr[i].index} class="list list-${taskArr[i].index}">
